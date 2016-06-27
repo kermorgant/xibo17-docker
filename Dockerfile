@@ -4,7 +4,6 @@ ENV REFRESHED_AT 2016-06-24
 
 RUN apt-get update && apt-get install -y \
     ssmtp \
-    wget \
     anacron \
     mysql-client \
     libpng-dev \
@@ -13,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     libxml2-dev  \
     curl \
+    && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-install gd curl \
     && docker-php-ext-install iconv mcrypt \
     && docker-php-ext-install pdo pdo_mysql \
